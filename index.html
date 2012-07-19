@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Villa Almerico Capra &quot;La Rotonda&quot; by rm86</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Villa Almerico Capra &quot;La Rotonda&quot;</h1>
+        <h2></h2>
+        <a href="https://github.com/rm86/Final-Project---Villa-Almerico-Capra" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Villa Capra "La Rotonda" is a renaissance villa just outside Vicenza, northern Italy, designed by Andrea Palladio.</p>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/images/image1.jpeg" alt="1"></p>
+
+<p>The correct name is Villa Almerico-Capra. It is also known as La Rotonda, Villa Rotunda, Villa La Rotonda, and Villa Almerico. The name "Capra" derives from the Capra brothers, who completed the building after it was ceded to them in 1591. 
+In 1565 a priest, Paolo Almerico, on his retirement from the Vatican (as referendario apostolico of Pope Pius IV and afterwards Pius V), decided to return to his home town of Vicenza in the Venetian countryside and build a country house. This house, later known as 'La Rotonda', was to be one of Palladio's best-known legacies to the architectural world. Villa Capra may have inspired a thousand subsequent buildings, but the villa was itself inspired by the Pantheon in Rome.</p>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/images/image0.jpg" alt="2"></p>
+
+<p>The design is for a completely symmetrical building having a square plan with four facades, each of which has a projecting portico. The whole is contained within an imaginary circle which touches each corner of the building and centres of the porticos. The name La Rotonda refers to the central circular hall with its dome.</p>
+
+<h1>Project Overview</h1>
+
+<p>The villa is composed by four identical facades each one with windows, arcs, cornices and the portico with columns, steps and a small roof. Every element is realized with a specific function and sub-functions where needed. Thanks to affine transformations, all four sides are obtained as rototranslations of a facade.</p>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/images/image2.jpeg" alt="3"><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot1.png" alt="3"></p>
+
+<h2>Facade</h2>
+
+<ul>
+<li>Walls are realized with translations of SIMPLEX_GRID, arcs with BEZIER curve surfaces.</li>
+<li>Steps are realized by a proper function that generates each step and returns a STRUCT of all of them</li>
+<li>Windows and door are generated in proper functions with SIMPLEX_GRID and specific COLOR values for glasses</li>
+<li>The portico is realized with different sub-functions because it is composed by different complex elements: the colonnade, the gable and ornaments</li>
+<li>Cornices and ornaments are divided in 2 types, simple ones are realized with SIMPLEX_GRID and complex ones are realized with BEZIER S0 and S1 primitives</li>
+<li>Other important primitives used are S to scale changes, R to rotate and T to translate</li>
+</ul><p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/images/image3.jpg" alt="4"><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot2.png" alt="4"></p>
+
+<h2>Portico</h2>
+
+<p>This is one of the hardest part of the project that required a very focused work on coordinates and scales. Columns are generated with a function and instanced several times as they are all identical. The small roof is realized thanks SIMPLEX_GRID, CUBIC_HERMITE and BEZIER primitives for surfaces and cornices. Details will be showed further in this page.</p>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot5.png" alt="5"></p>
+
+<h2>Roof</h2>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot8.png" alt="6"></p>
+
+<h1>Project Details</h1>
+
+<h2>Windows and Door Ornaments</h2>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot3.png" alt="7"><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot4.png" alt="7"></p>
+
+<h2>Columns</h2>
+
+<p>A column is composed by the capital, realized with a BEZIER curve, the body and the base. The body is realized with a ROTATIONAL_SURFACE and a 2*PI DOMAIN allowing for an easy cylindric modeling.</p>
+
+<h3>Capitals</h3>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot7.png" alt="8"></p>
+
+<h3>Base</h3>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot6.png" alt="8"></p>
+
+<h2>Dome</h2>
+
+<p>The hardest part of the project is the dome. As you can see from images, the dome could not be realized with a single rotated profile because it has different colored parts and a particular shape that makes the dome a complex structure of similar profiles, connected each other in the final STRUCT.</p>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot9.png" alt="9"></p>
+
+<h2>Interiors</h2>
+
+<p>Internal structure of the villa is the last block of the project. It has been modeled in a specific function and follows the plan. Main entrances on the four facades lead to the central rounded room and you can access the other rooms from the corridors. There are three floors and the internal dome.</p>
+
+<p><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot11.png" alt="10"><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot12.png" alt="10"><img src="https://github.com/cvdlab-cg/266711/raw/master/final-project/material/snapshots/snapshot13.png" alt="10"></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/rm86/Final-Project---Villa-Almerico-Capra/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/rm86/Final-Project---Villa-Almerico-Capra/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/rm86/Final-Project---Villa-Almerico-Capra"></a> is maintained by <a href="https://github.com/rm86">rm86</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
